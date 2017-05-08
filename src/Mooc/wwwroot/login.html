@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta http-equiv="Cache-Control" content="no-siteapp">
+		<meta name="apple-moble-web-app-status-bar-style" content="black-translucent">
+		<meta charset="utf-8">
+
+		<title>麦壳</title>
+
+		<link rel="stylesheet" href="./node_modules/toastr/build/toastr.min.css">
+		<link rel="stylesheet" href="./dist/css/login.css">
+	</head>
+	<body>
+		<div class="login">
+			<div class="login_header">
+				<a href="login.html" target="_parent">
+					<img src="./dist/img/logo_white.png" width="285" height="62" alt="麦壳网" />
+				</a>
+				<div>
+					<img src="./dist/img/cloud_s.png" width="81" height="52" alt="cloud" />
+				</div>
+				<div>
+					<img src="./dist/img/cloud_m.png" width="136" height="95" alt="cloud" />
+				</div>
+			</div>
+			<div class="login_box">
+				<form>
+					<input type="text" name="email" placeholder="请输入您的ID" />
+					<input type="password" name="password" placeholder="请输入密码" />
+					<div>
+						<label class="f1">
+							<input type="checkbox" checked="checked" /> 记住我
+						</label>
+						<a href="javascript:void(0);" target="_parent">忘记密码？</a>
+					</div>
+					<button type="submit">登录</button>
+				</form>
+				<div class="login_right">
+					<div>您还还没慕课账号？</div>
+					<a href="register.html" class="register_now">立即注册</a>
+					<div class="login_others">使用以下账号直接登录:</div>
+					<a class="wb" href="javascript:void(0);" target="_parent" title="使用新浪微博账号登录"></a>
+					<a class="qq" href="javascript:void(0);" target="_parent" title="使用腾讯QQ账号登录"></a>
+				</div>
+			</div>
+			<div class="login_box_btm"></div>
+		</div>
+
+		<script src="./node_modules/jquery/dist/jquery.min.js"></script>
+		<script src="./node_modules/jquery-validation/dist/jquery.validate.min.js"></script>
+		<script src="./node_modules/toastr/build/toastr.min.js"></script>
+		<script src="./dist/js/data_login.js"></script>
+	</body>
+</html>
