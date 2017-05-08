@@ -1,0 +1,1 @@
+$('nav').find('li').eq(1).addClass('current');
