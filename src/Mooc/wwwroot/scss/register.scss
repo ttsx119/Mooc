@@ -1,0 +1,134 @@
+body {
+	background: #019875 center 100px no-repeat;
+	overflow: hidden;
+
+	a {
+		text-decoration: none;
+	}
+
+	.login {
+		margin: 0 auto;
+		padding-top: 110px;
+		width: 640px;
+		color: #777;
+		font-size: 16px;
+
+		.login_header {
+			position: relative;
+			margin-bottom: 20px;
+
+			div {
+				position: absolute;
+
+				&:first-of-type {
+					top: 15px;
+					left: 375px;
+				}
+
+				&:last-of-type {
+					top: -35px;
+					left: 470px;
+				}
+			}
+		}
+
+		.login_box {
+			padding: 40px;
+			min-height: 150px;
+			background: #EAFFFD;
+			overflow: hidden;
+
+			form {
+				float: left;
+				margin: 0;
+				width: 360px;
+				border-right: 1px dashed #999;
+
+				& > input {
+					margin: 0 0 20px 0;
+					padding: 6px 10px;
+					width: 296px;
+					height: 30px;
+					color: #777;
+					font: 16px/30px "微软雅黑", "宋体", Arial;
+					border: none;
+					outline: none;
+					transition: border 0.2s ease-in 0;
+				}
+
+			
+				& > div {
+					overflow: hidden;
+
+					.f1 {
+						float: left !important;
+						margin: 3px 3px 20px 4px;
+						background: none;
+						border: none;
+
+						& + a {
+							float: right !important;
+							margin-right: 45px;
+							color: #777;
+
+							&:hover {
+								color: #019875;
+							}
+						}
+					}
+				}
+
+				button {
+					float: left;
+					width: 155px;
+					height: 46px;
+					color: #FFF;
+					font-size: 16px;
+					line-height: 46px;
+					text-align: center;
+					background: #019875;
+					border: none;
+				}
+			}
+
+			.login_right {
+				float: left;
+				margin: 10px 0 0 30px;
+				line-height: 30px;
+
+				.register_now {
+					float: left;
+					padding-right: 24px;
+					height: 30px;
+					color: #019875;
+					line-height: 30px;
+					background: url("../img/registor_now.png") right center no-repeat;
+				}
+
+				.login_others {
+					margin: 70px 0 10px 0;
+				}
+
+				.wb {
+					float: left;
+					margin: 0 30px 0 10px;
+					width: 54px;
+					height: 54px;
+					background: url("../img/wbqq.png") left top no-repeat;
+				}
+
+				.qq {
+					float: left;
+					width: 54px;
+					height: 54px;
+					background: url("../img/wbqq.png") right top no-repeat;
+				}
+			}
+		}
+
+		.login_box_btm {
+			height: 10px;
+			background: url("../img/login_btm.png") repeat-x;
+		}
+	}
+}
