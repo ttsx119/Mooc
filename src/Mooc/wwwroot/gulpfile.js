@@ -5,7 +5,8 @@ const browserSync = require('browser-sync');
 
 const jsDir = [
 	'./js/*.js',
-	'./js/render/*.js'
+	'./js/render/*.js',
+	'./js/data/*.js'
 ];
 
 gulp.task('css', () => {
