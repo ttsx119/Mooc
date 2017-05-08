@@ -12,6 +12,7 @@ namespace Mooc.Config
     {
         // 告诉数据源已有数据实体
         public DbSet<Classification> Classification { get; set; }
+        public DbSet<Course> Course { get; set; }
 
         // 自定义数据源位置
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
