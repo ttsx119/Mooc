@@ -10,7 +10,7 @@ function renderHeader() {
 	headerHTML += '<a href="index.html" target="_parent">首页</a>';
 	headerHTML += '</li>';
 	headerHTML += '<li>';
-	headerHTML += '<a href="courses.html" target="_parent">全部课程</a>';
+	headerHTML += '<a href="course.html" target="_parent">全部课程</a>';
 	headerHTML += '</li>';
 	headerHTML += '<li>';
 	headerHTML += '<a href="note.html" target="_parent">留言板</a>';
@@ -53,3 +53,8 @@ function renderFooter() {
 
 renderHeader();
 renderFooter();
+
+// 导航栏特效
+$('nav').find('li').click(function() {
+	$(this).addClass('current').siblings().removeClass('current');
+});

@@ -1,9 +1,4 @@
-// 导航栏特效
 $('nav').find('li').eq(0).addClass('current');
-
-$('nav').find('li').click(function() {
-	$(this).addClass('current').siblings().removeClass('current');
-});
 
 // 热门课程切换
 $('.tab_header').find('li').eq(0).addClass('current');

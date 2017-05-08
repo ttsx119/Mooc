@@ -1,0 +1,152 @@
+@import "./common/common.scss";
+
+#content {
+	margin: 35px auto 0;
+	padding-bottom: 100px;
+	width: 1024px;
+
+	& > dl {
+		margin: 0 0 20px;
+
+		& > dd {
+			margin: 0;
+			padding: 20px 15px 10px 15px;
+			background: #FAFAFA;
+			overflow: hidden;
+
+			& > dl {
+				margin: 0;
+				overflow: hidden;
+
+				dt {
+					float: left;
+					width: 75px;
+					font-weight: 700;
+				}
+
+				dd {
+					margin-left: 75px;
+
+					a {
+						float: left;
+						margin: 0 10px 10px 0;
+						padding: 0 8px;
+						white-space: nowrap;
+
+						&:hover,
+						&.current {
+							color: #FFF;
+							background: #0D9572;
+						}
+					}
+				}
+			}
+		}
+	}
+
+	#search_box {
+		position: relative;
+		margin: 0 auto 40px;
+		width: 740px;
+		height: 37px;
+		border: 2px solid #019875;
+
+		input {
+			&:first-of-type {
+				padding: 7px 8px 7px 10px;
+				width: 570px;
+				height: 23px;
+				line-height: 23px;
+				font-size: 16px;
+				border: 0;
+			}
+
+			&:last-of-type {
+				float: right;
+				width: 152px;
+				height: 37px;
+				color: #FFF;
+				font-size: 18px;
+				background: #019875;
+				border: none;
+				cursor: pointer;
+			}
+		}
+	}
+
+	.course_list {
+		width: 1024px;
+		overflow: hidden;
+
+		li {
+			float: left;
+			margin: 0 26.01px 20px 0;
+			padding: 15px 13px;
+			width: 200px;
+			background: #FAFAFA url("../img/hc_list_bg.gif") left bottom repeat-x;
+			border: 2px solid #FFF;
+			border-bottom: none;
+
+			&:hover {
+				background: #FAFAFA url("../img/hc_list_bg_curr.gif") left bottom repeat-x;
+				border: 2px solid #E6E7E8;
+				border-bottom: none;
+			}
+
+			a {
+				position: relative;
+				display: block;
+				line-height: 22px;
+
+				img {
+					width: 200px;
+					height: 200px;
+				}
+
+				span {
+					position: absolute;
+					right: 0;
+					bottom: 0;
+					left: 0;
+					z-index: 1;
+					display: block;
+					padding: 5px 5px 5px 20px;
+					line-height: 18px;
+					color: #FFF;
+					background: #000;
+					opacity: 0.7;
+				}
+			}
+
+			p {
+				text-indent: 20px;
+
+				&:last-of-type {
+					margin: 10px 0 0 0;
+					padding-top: 10px;
+					border-top: 1px dashed #E6E7E7;
+				}
+			}
+		}
+	}
+
+	.pagination {
+		margin: 20px auto;
+		line-height: 30px;
+		text-align: center;
+
+		a {
+			margin: 0 10px 10px 0;
+			padding: 5px 10px;
+			height: 30px;
+			line-height: 30px;
+			color: #FFF;
+			background: #91CEBE;
+
+			&:hover,
+			&.current {
+				background: #009875;
+			}
+		}
+	}
+}
