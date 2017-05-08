@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta http-equiv="Cache-Control" content="no-siteapp">
+		<meta name="apple-moble-web-app-status-bar-style" content="black-translucent">
+		<meta charset="utf-8">
+
+		<title>麦壳</title>
+
+		<link rel="stylesheet" href="./dist/css/index.css">
+	</head>
+	<body>
+		<header></header>
+		<div id="content">
+			<aside>
+				<ul></ul>
+
+				<a href="#" target="_parent">更多课程</a>
+			</aside>
+			<div id="main">
+				<div id="search_box">
+					<form>
+						<input type="text" placeholder="请输入课程名称" name="keywords" />
+						<input type="submit" value="搜索" />
+					</form>
+				</div>
+
+				<dl id="hot_search">
+					<dt>热门搜索: </dt>
+					<dd>Java</dd>
+					<dd>PHP</dd>
+					<dd>Python</dd>
+					<dd>C#</dd>
+				</dl>
+
+				<ul class="tab_header">
+					<li>热门课程</li>
+					<li>最新课程</li>
+				</ul>
+				<div class="tab_body">
+					<ul class="hot_body"></ul>
+					<ul class="new_body"></ul>
+				</div>
+			</div>
+		</div>
+		<footer></footer>
+
+		<script src="./node_modules/jquery/dist/jquery.min.js"></script>
+		<script src="./dist/js/common.js"></script>
+		<script src="./dist/js/animate_index.js"></script>
+		<script src="./dist/js/data_index.js"></script>
+	</body>
+</html>
