@@ -70,3 +70,69 @@ $.ajax({
 		$('aside').find('ul').html(html);
 	}
 });
+
+// 热度排序函数
+function sortByHot(a, b) {
+	return b.studentNumber - a.studentNumber;
+}
+
+// 课程显示
+$.ajax({
+	type: 'GET',
+	url: 'http://localhost:5000/api/course',
+	dataType: 'json',
+	success: function(data) {
+		data.sort(sortByHot);
+
+		var hotIndex = 0;
+		var hotHTML  = '';
+
+		data.map(function(hotItem) {
+			hotIndex++;
+
+			if (hotIndex < 17) {
+				if (hotIndex % 2 === 1) {
+					hotHTML += '<li>';
+				}
+
+				hotHTML += '<div class="course_item">';
+				hotHTML += '<div class="item_header">';
+				hotHTML += '<a href="lesson.html?id=';
+				hotHTML += hotItem.id;
+				hotHTML += '" target="_parent">';
+				hotHTML += hotItem.name;
+				hotHTML += '</a>';
+				hotHTML += '<span>';
+				hotHTML += hotItem.category === 0 ? '[线上]' : '[线下]';
+				hotHTML += '</span>';
+				hotHTML += '</div>';
+				hotHTML += '<span>';
+				hotHTML += '<span>教师: </span>';
+				hotHTML += hotItem.teacherID;
+				hotHTML += '</span>';
+				hotHTML += '<span>';
+				hotHTML += '<span>时长: </span>';
+				hotHTML += hotItem.duration;
+				hotHTML += '</span>';
+				hotHTML += '<span>';
+				hotHTML += '<span>上课时间: </span>';
+				hotHTML += hotItem.courseTime;
+				hotHTML += '</span>';
+				hotHTML += '<br />';
+				hotHTML += '<span>';
+				hotHTML += '<span>教师优势: </span>';
+				hotHTML += hotItem.duration;
+				hotHTML += '</span>';
+				hotHTML += '</div>';
+
+				if (hotIndex % 2 === 0) {
+					hotHTML += '</li>';
+				}
+			}
+		});
+
+		hotHTML += '<a href="javascript:void(0);" target="_parent">查看更多</a>';
+
+		$('.tab_body').find('ul:first-of-type').html(hotHTML);
+	}
+});
