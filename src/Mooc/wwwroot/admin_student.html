@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta http-equiv="Cache-Control" content="no-siteapp">
+		<meta name="apple-moble-web-app-status-bar-style" content="black-translucent">
+		<meta charset="utf-8">
+
+		<title>麦壳</title>
+
+        <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.min.css">
+        <link rel="stylesheet" href="./node_modules/toastr/build/toastr.min.css">
+        <link rel="stylesheet" href="./node_modules/font-awesome/css/font-awesome.min.css">
+        <link rel="stylesheet" href="./node_modules/perfect-scrollbar/dist/css/perfect-scrollbar.min.css">
+
+		<link rel="stylesheet" href="./dist/css/admin_ui.css">
+	</head>
+	<body>
+		<div id="wrapper">
+            <div id="consoleApp">
+                <nav>
+                    <header>
+                        <a href="#/console" target="_parent">
+                            <img src="./dist/img/admin_logo.png" alt="logo" />
+                        </a>
+                    </header>
+
+                    <ul></ul>
+                </nav>
+
+                <div id="container">
+	                <header>
+	                    <ul>
+	                        <li>
+	                            <a href="#" target="_parent">
+	                                <i class="fa fa-dashboard"></i>
+	                            </a>
+	                        </li>
+	                        <li>
+	                            <a href="#/console/task/list" target="_parent">
+	                                <i class="fa fa-tasks"></i>
+	                            </a>
+	                        </li>
+	                    </ul>
+
+	                    <ul>
+			                <li>
+			                    <a href="javascript:void(0)" target="_parent">
+			                        <img src="./dist/img/user.jpg" class="img-circle" alt="admin-logo" />
+			                        <span>
+			                            Lost
+			                            <i class="fa fa-angle-down"></i>
+			                        </span>
+			                    </a>
+
+			                    <ul class="dropdown-menu">
+			                        <li>
+			                            <a href="#/console/system/profile">
+			                                <i class="fa fa-user"></i>
+			                                Profile
+			                            </a>
+			                        </li>
+			                        <li>
+			                            <a href="#/console/logout">
+			                                <i class="fa fa-lock"></i>
+			                                Logout
+			                            </a>
+			                        </li>
+			                    </ul>
+			                </li>
+	                    </ul>
+	                </header>
+
+	                <div class="main-container">
+		                <div class="row nav-header">
+		                    <div class="title-env">
+		                        <h1 class="title">学生配置</h1>
+		                        <p class="description">配置学生用户</p>
+		                    </div>
+		                    <div class="breadcrumb-env">
+		                        <ol class="breadcrumb">
+                                    <li>
+                                        <a href="admin.html" target="_parent">
+                                            <i class="fa fa-home"></i>
+                                            Home
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="admin.html" target="_parent">
+                                            学生
+                                        </a>
+                                    </li>
+		                        </ol>
+		                    </div>
+		                </div>
+
+	                    <div class="row">
+	                        <div class="col-md-12">
+	                            <div class="panel">
+	                                <div class="panel-heading">
+	                                    <div class="panel-title">配置学生</div>
+	                                </div>
+	                                <div class="panel-body">
+                	                    <div class="table-container">
+	                                        <div class="row table-header">
+							                    <div class="col-sm-7 col-md-offset-5 text-right">
+							                        <span>Search:</span>
+							                        <label>
+							                            <input type="search" class="form-control input-sm" />
+							                        </label>
+							                        <button class="btn btn-default" type="button" data-toggle="modal" data-target="#addModal">添加</button>
+							                    </div>
+							                </div>
+
+	                                        <table class="table table-bordered" role="grid">
+							                    <thead>
+							                        <tr role="row"></tr>
+							                    </thead>
+							                    <tbody></tbody>
+							                </table>
+
+							                <div class="row table-footer">
+							                    <div class="col-sm-6 col-md-offset-6 text-right">
+							                        <ul class="pagination">
+							                            <li class="previous">
+							                                <a href="javascript:void(0)">Previous</a>
+							                            </li>
+				                                        <li>
+				                                            <a href="javascript:void(0)">{item}</a>
+				                                        </li>
+							                            <li class="next">
+							                                <a href="javascript:void(0)">Next</a>
+							                            </li>
+							                        </ul>
+							                    </div>
+							                </div>
+					                    </div>
+
+					                    <div class="modal-container">
+	                    	                <div class="modal fade" id="addModal" role="dialog">
+							                    <div class="modal-dialog">
+							                        <div class="modal-content">
+							                            <form role="form">
+							                                <div class="modal-header">
+							                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+							                                    <h4 class="modal-title">Add</h4>
+							                                </div>
+							                                <div class="modal-body">
+												                <div class="form-wrapper">
+												                    <div class="row">
+												                        <div class="col-md-6">
+												                            <div class="form-group">
+												                                <label class="control-label">账号</label>
+												                                <input type="text" class="form-control" placeholder="账号" name="userId" />
+												                            </div>
+												                        </div>
+												                        <div class="col-md-6">
+												                            <div class="form-group">
+												                                <label class="control-label">姓名</label>
+												                                <input type="text" class="form-control" placeholder="姓名" name="userName" />
+												                            </div>
+												                        </div>
+												                    </div>
+												                    <div class="row">
+												                        <div class="col-md-6">
+												                            <div class="form-group">
+												                                <label class="control-label">密码</label>
+												                                <input type="password" class="form-control" name="userPwd" />
+												                            </div>
+												                        </div>
+												                        <div class="col-md-6">
+												                            <div class="form-group">
+												                                <label class="control-label">重复密码</label>
+												                                <input type="password" class="form-control" name="reUserPwd" />
+												                            </div>
+												                        </div>
+												                    </div>
+												                    <div class="row">
+												                        <div class="col-md-6">
+												                            <div class="form-group">
+												                                <label class="control-label">性别</label>
+												                                <input type="text" class="form-control" placeholder="" name="userSex" />
+												                            </div>
+												                        </div>
+												                        <div class="col-md-6">
+												                            <div class="form-group">
+												                                <label class="control-label">家庭地址</label>
+												                                <input type="text" class="form-control" placeholder="" name="userAddress" />
+												                            </div>
+												                        </div>
+												                    </div>
+												                    <div class="row">
+												                        <div class="col-md-6">
+												                            <div class="form-group">
+												                                <label class="control-label">年龄</label>
+												                                <input type="text" class="form-control" placeholder="" name="userAge" />
+												                            </div>
+												                        </div>
+												                        <div class="col-md-6">
+												                            <div class="form-group">
+												                                <label class="control-label">电话</label>
+												                                <input type="text" class="form-control" placeholder="" name="userName" />
+												                            </div>
+												                        </div>
+												                    </div>
+											                        <div class="row">
+											                        	<div class="col-md-12">
+												                        	<div class="form-group">
+												                        		<label class="control-label">上传照片</label>
+																				<input type="file" class="form-control" name="uploadFile" id="uploadFile"/>
+																			</div>
+																		</div>
+											                        </div>
+												                </div>
+							                                </div>
+							                                <div class="modal-footer">
+							                                    <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+							                                    <button type="submit" class="btn btn-info">保存更改</button>
+							                                </div>
+							                            </form>
+							                        </div>
+							                    </div>
+							                </div>
+
+	                    	                <div class="modal fade" id="delModal" role="dialog">
+							                    <div class="modal-dialog">
+							                        <div class="modal-content">
+							                            <form role="form">
+							                                <div class="modal-header">
+							                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+							                                    <h4 class="modal-title">Delete</h4>
+							                                </div>
+							                                <div class="modal-body">
+							                                	<p>确认删除学生 - <span class="data-item"></span></p>
+							                                </div>
+							                                <div class="modal-footer">
+							                                    <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+							                                    <button type="submit" class="btn btn-danger">保存更改</button>
+							                                </div>
+							                            </form>
+							                        </div>
+							                    </div>
+							                </div>
+
+	                    	                <div class="modal fade" id="resetModal" role="dialog">
+							                    <div class="modal-dialog">
+							                        <div class="modal-content">
+							                            <form role="form">
+							                                <div class="modal-header">
+							                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+							                                    <h4 class="modal-title">Reset</h4>
+							                                </div>
+							                                <div class="modal-body">
+							                                	<div class="form-wrapper">
+												                    <div class="row">
+												                        <div class="col-md-6">
+												                            <div class="form-group">
+												                                <label class="control-label">账号</label>
+												                                <input type="text" class="form-control" placeholder="账号" name="userId" />
+												                            </div>
+												                        </div>
+												                        <div class="col-md-6">
+												                            <div class="form-group">
+												                                <label class="control-label">姓名</label>
+												                                <input type="text" class="form-control" placeholder="姓名" name="userName" />
+												                            </div>
+												                        </div>
+												                    </div>
+												                    <div class="row">
+												                        <div class="col-md-6">
+												                            <div class="form-group">
+												                                <label class="control-label">密码</label>
+												                                <input type="password" class="form-control" name="userPwd" />
+												                            </div>
+												                        </div>
+												                        <div class="col-md-6">
+												                            <div class="form-group">
+												                                <label class="control-label">重复密码</label>
+												                                <input type="password" class="form-control" name="reUserPwd" />
+												                            </div>
+												                        </div>
+												                    </div>
+												                    <div class="row">
+												                        <div class="col-md-6">
+												                            <div class="form-group">
+												                                <label class="control-label">性别</label>
+												                                <input type="text" class="form-control" placeholder="" name="userSex" />
+												                            </div>
+												                        </div>
+												                        <div class="col-md-6">
+												                            <div class="form-group">
+												                                <label class="control-label">家庭地址</label>
+												                                <input type="text" class="form-control" placeholder="" name="userAddress" />
+												                            </div>
+												                        </div>
+												                    </div>
+												                    <div class="row">
+												                        <div class="col-md-6">
+												                            <div class="form-group">
+												                                <label class="control-label">年龄</label>
+												                                <input type="text" class="form-control" placeholder="" name="userAge" />
+												                            </div>
+												                        </div>
+												                        <div class="col-md-6">
+												                            <div class="form-group">
+												                                <label class="control-label">电话</label>
+												                                <input type="text" class="form-control" placeholder="" name="userName" />
+												                            </div>
+												                        </div>
+												                     </div>
+											                        <div class="row">
+												                        <div class="col-md-12">
+													                            <div class="form-group">
+																					<input type="file" name="uploadFile" id="uploadFile" name="uploadFile"/>
+											                        			</div>
+												                        </div>
+											                        </div> <div class="row">
+												                        <div class="col-md-6">
+													                            <div class="form-group">
+													                            	<label class="control-label">增课</label>
+																					<select>
+																						<option value ="volvo">Volvo</option>
+																						<option value ="saab">Saab</option>
+																						<option value="opel">Opel</option>
+																						<option value="audi">Audi</option>
+																					</select>
+											                        			</div>
+												                        </div>
+												                        <div class="col-md-6">
+													                            <div class="form-group">
+													                            	<label class="control-label">删课</label>
+																					<select>
+																						<option value ="volvo">Volvo</option>
+																						<option value ="saab">Saab</option>
+																						<option value="opel">Opel</option>
+																						<option value="audi">Audi</option>
+																					</select>
+											                        			</div>
+												                        </div>
+											                        </div> 
+												                </div>
+							                                </div>
+							                                <div class="modal-footer">
+							                                    <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+							                                    <button type="submit" class="btn btn-info">保存更改</button>
+							                                </div>
+							                            </form>
+							                        </div>
+							                    </div>
+							                </div>
+					                    </div>
+	                                </div>
+	                            </div>
+	                        </div>
+	                    </div>
+	                </div>
+                </div>
+            </div>
+		</div>
+
+        <script src="./node_modules/jquery/dist/jquery.min.js"></script>
+        <script src="./node_modules/jquery-validation/dist/jquery.validate.min.js"></script>
+        <script src="./node_modules/toastr/build/toastr.min.js"></script>
+        <script src="./node_modules/perfect-scrollbar/dist/js/perfect-scrollbar.jquery.min.js"></script>
+        <script src="./node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+
+		<script src="./dist/js/admin_common.js"></script>
+		<script src="./dist/js/student.js"></script>
+	</body>
+</html>
