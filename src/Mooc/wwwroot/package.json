@@ -9,6 +9,7 @@
   "devDependencies": {
     "bootstrap": "^3.3.7",
     "browser-sync": "^2.18.8",
+    "ckeditor": "^4.6.2",
     "font-awesome": "^4.7.0",
     "gulp": "^3.9.1",
     "gulp-cache": "^0.4.6",

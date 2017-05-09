@@ -1,0 +1,20 @@
+.table-footer {
+    margin-right: -15px;
+    line-height: 32px;
+
+    ul.pagination {
+        @include border-radius(0);
+
+        li {
+            a {
+                color: $main-pagination-font-color;
+            }
+
+            &.active a {
+                color: $main-pagination-active-font-color;
+                background: $main-pagination-active-bg-color;
+                border-color: $main-pagination-active-bg-color;
+            }
+        }
+    }
+}

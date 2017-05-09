@@ -1,0 +1,37 @@
+table {
+    thead {
+        th {
+            padding-left: 15px;
+            vertical-align: middle;
+        }
+    }
+
+    tbody {
+        tr {
+            color: $main-table-font-color;
+
+            &:nth-child(odd) {
+                background: $main-table-odd-bg-color;
+            }
+
+            td {
+                padding: 7px 15px;
+                vertical-align: middle;
+
+                button {
+                    margin: 0 5px;
+                    width: auto;
+
+                    &:first-child {
+                        margin-left: 0;
+                    }
+
+                    &:focus,
+                    &:active {
+                        outline: none;
+                    }
+                }
+            }
+        }
+    }
+}

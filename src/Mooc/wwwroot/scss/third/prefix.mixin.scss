@@ -1,0 +1,24 @@
+@mixin border-radius($size: 0) {
+    -webkit-border-radius: $size;
+    -moz-border-radius: $size;
+    border-radius: $size;
+}
+
+@mixin box-shadow($shadow: none) {
+    -webkit-box-shadow: $shadow;
+    -moz-box-shadow: $shadow;
+    box-shadow: $shadow;
+}
+
+@mixin transition($transition: none) {
+    -webkit-transition: $transition;
+    -moz-transition: $transition;
+    -o-transition: $transition;
+    transition: $transition;
+}
+
+@mixin opacity($opacity: 1) {
+    opacity: $opacity;
+    -ms-filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100 * $opacity);
+    filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100 * $opacity);
+}

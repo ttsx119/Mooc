@@ -1,0 +1,12 @@
+@import "./NavBar.scss";
+@import "./NavHead.scss";
+
+#consoleApp {
+    height: 100%;
+
+    #container {
+        z-index: 0;
+        height: 100%;
+        background: $main-body-bg-color;
+    }
+}
