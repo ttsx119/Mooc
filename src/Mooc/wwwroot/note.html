@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta http-equiv="Cache-Control" content="no-siteapp">
+		<meta name="apple-moble-web-app-status-bar-style" content="black-translucent">
+		<meta charset="utf-8">
+
+		<title>麦壳</title>
+
+		<link rel="stylesheet" href="./dist/css/note.css">
+	</head>
+	<body>
+		<header></header>
+
+		<div id="content">
+			<h1>留言板</h1>
+
+			<ul></ul>
+
+			<div class="pagination">
+				<a href="javascript:void(0);" target="_parent">首页</a>
+				<a href="javascript:void(0);" target="_parent">上一页</a>
+				<a href="javascript:void(0);" target="_parent">1</a>
+				<a href="javascript:void(0);" target="_parent">2</a>
+				<a href="javascript:void(0);" target="_parent">3</a>
+				<a href="javascript:void(0);" target="_parent">4</a>
+				<a href="javascript:void(0);" target="_parent">5</a>
+				<a href="javascript:void(0);" target="_parent">下一页</a>
+				<a href="javascript:void(0);" target="_parent">尾页</a>
+			</div>
+
+			<form>
+				<label>留言：</label>
+				<textarea id="editor" name="content"></textarea> >
+
+				<input type="submit" value="留言" />
+			</form>
+		</div>
+
+		<footer></footer>
+
+		<script src="./node_modules/jquery/dist/jquery.min.js"></script>
+		<script src="./node_modules/ckeditor/ckeditor.js"></script>
+		<script src="./node_modules/jquery-validation/dist/jquery.validate.min.js"></script>
+		<script src="./node_modules/toastr/build/toastr.min.js"></script>
+		<script src="./dist/js/common.js"></script>
+
+		<script src="./dist/js/animate_note.js"></script>
+		<script src="./dist/js/data_note.js"></script>
+	</body>
+</html>

@@ -1,0 +1,37 @@
+@import "./Panel.scss";
+@import "./Table.scss";
+@import "./Pagination.scss";
+@import "./Modal.scss";
+
+.table-container {
+    & > .row {
+        &.table-header {
+            margin-bottom: 10px;
+
+            & > div {
+                line-height: 35px;
+
+                button {
+                    margin-left: 20px;
+                    width: 60px;
+                    height: 30px;
+                    border: 1px solid #EEEEEE;
+                    @include border-radius(0);
+
+                    &:hover {
+                        background: $main-panel-heading-border-color;
+                    }
+                }
+
+                label {
+                    margin-top: 3px;
+                    margin-left: 10px;
+
+                    input {
+                        @include border-radius(0);
+                    }
+                }
+            }
+        }
+    }
+}

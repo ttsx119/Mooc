@@ -1,0 +1,46 @@
+.modal {
+    .modal-content {
+        padding: 30px;
+        border: 1px solid $main-modal-border-color;
+        @include border-radius(0);
+        @include box-shadow(none);
+
+        label {
+            font-weight: 400;
+        }
+
+        button {
+            width: auto;
+        }
+
+        .modal-header {
+            margin: 0;
+            padding: 0 0 15px;
+            border-bottom-width: 2px;
+
+            .close {
+                outline: none;
+            }
+        }
+
+        .modal-body {
+            padding: 20px 0;
+
+            .row {
+                margin: 0 -15px;
+
+                input {
+                    @include border-radius(0);
+                }
+            }
+        }
+
+        .modal-footer {
+            padding: 15px 0 0;
+
+            button {
+                @include border-radius(0);
+            }
+        }
+    }
+}

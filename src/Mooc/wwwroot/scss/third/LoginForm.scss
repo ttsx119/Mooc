@@ -1,0 +1,77 @@
+#loginApp {
+    .form-login {
+        padding: 36px 27px;
+        width: 100%;
+        color: $login-link-font-color;
+        background: $login-form-bg-color;
+        @include border-radius(12px);
+        @include box-shadow(0px 2px 2px $login-form-shadow-color inset);
+
+        .form-group {
+            position: relative;
+
+            input {
+                margin-bottom: 9px;
+                width: 100%;
+                height: 40px;
+                line-height: 40px;
+                text-indent: 9px;
+                color: $login-input-font-color;
+                border: none;
+                border-bottom: 1px solid $login-input-border-color;
+
+                &:focus {
+                    outline: none;
+                }
+
+                &.error {
+                    border-bottom-color: $login-input-border-error-color;
+
+                    & + label {
+                        position: absolute;
+                        top: 10px;
+                        right: 0;
+                        font-weight: 400;
+                        color: $login-label-error-font-color;
+                    }
+                }
+            }
+        }
+
+        & > button {
+            margin-top: 26px;
+            height: 50px;
+            font-size: 18px;
+            color: $login-button-font-color;
+            background: $login-button-submit-bg-color;
+        }
+
+        a {
+            display: inline-block;
+            margin: 25px auto;
+            width: 100%;
+            text-align: center;
+            color: $login-link-font-color;
+        }
+
+        .separate-line {
+            position: relative;
+            width: 100%;
+            height: 1px;
+            background: $login-input-border-color;
+
+            img {
+                position: absolute;
+                top: -10px;
+                left: 48%;
+                z-index: 1;
+            }
+        }
+
+        p {
+            margin: 28px auto;
+            text-align: center;
+            cursor: default;
+        }
+    }
+}

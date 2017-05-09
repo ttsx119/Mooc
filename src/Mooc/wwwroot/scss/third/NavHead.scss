@@ -1,0 +1,98 @@
+#consoleApp {
+    #container {
+        & > header {
+            position: fixed;
+            right: 0;
+            left: 80px;
+            z-index: 4;
+            height: 76px;
+            background: $main-header-bg-color;
+
+            & > ul {
+                & > li {
+                    position: relative;
+
+                    & > a {
+                        display: block;
+                        padding: 30px 20px;
+                        color: $main-header-font-color;
+
+                        i {
+                            font-size: 15px;
+                        }
+                    }
+                }
+
+                &:first-child {
+                    float: left;
+
+                    li {
+                        float: left;
+                    }
+                }
+
+                &:last-child {
+                    float: right;
+                    margin-right: 30px;
+
+                    & > li {
+                        border: 1px solid $main-header-bg-color;
+
+                        &.open {
+                            border-left-color: $main-header-menu-border-color;
+                            border-right-color: $main-header-menu-border-color;
+                        }
+
+                        a {
+                            padding: 23px 20px;
+
+                            img {
+                                display: inline-block;
+                                width: 28px;
+
+                                & + span {
+                                    margin-left: 5px;
+                                }
+                            }
+
+                            & + ul {
+                                right: -1px;
+                                left: auto;
+                                width: 250px;
+                                @include border-radius(0);
+                                @include box-shadow(none);
+
+                                li {
+                                    display: block;
+                                    padding: 15px 20px 0;
+
+                                    a {
+                                        display: block;
+                                        padding: 0 0 15px;
+                                        font-size: 13px;
+                                        color: $main-header-font-color;
+                                        line-height: 1;
+                                        border-bottom: 1px solid $main-header-border-color;
+
+                                        i {
+                                            margin-right: 5px;
+                                        }
+                                    }
+
+                                    &:last-child {
+                                        background: $main-header-menu-bg-color;
+                                    }
+
+                                    &:hover a {
+                                        color: $main-header-menu-hover-color;
+                                        background: transparent;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

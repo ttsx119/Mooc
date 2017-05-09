@@ -1,0 +1,96 @@
+.main-container {
+    margin-top: 76px;
+    margin-left: 80px;
+
+    & > .row {
+        margin: 0;
+    }
+
+    & > .nav-header {
+        position: fixed;
+        right: 0;
+        left: 80px;
+        z-index: 3;
+        padding: 20px 0;
+        background: $main-nav-header-bg-color;
+        -webkit-box-shadow: 0 1px 0 rgba(0, 1, 1, 0.08), inset 0 1px 0 #EDEDED;
+        -moz-box-shadow: 0 1px 0 rgba(0, 1, 1, 0.08), inset 0 1px 0 #EDEDED;
+        box-shadow: 0 1px 0 rgba(0, 1, 1, 0.08), inset 0 1px 0 #EDEDED;
+
+        .title-env {
+            float: left;
+            padding-left: 30px;
+
+            h1 {
+                margin: 0;
+                font-size: 27px;
+                font-weight: 400;
+            }
+
+            p {
+                margin: 5px 0 0;
+                color: $main-nav-header-font-color;
+            }
+        }
+
+        .breadcrumb-env {
+            float: right;
+            padding-right: 30px;
+
+            & > .breadcrumb {
+                margin: 15px 0 0;
+                background: transparent;
+                @include border-radius(0);
+
+                li {
+                    a {
+                        color: $main-nav-header-font-color;
+
+                        i {
+                            margin-right: 5px;
+                        }
+                    }
+
+                    &:last-child a {
+                        font-weight: 700;
+                        color: $main-nav-header-active-color;
+                    }
+                }
+            }
+        }
+
+        & + .row {
+            margin: 0 15px;
+
+            .panel {
+                margin-top: 122px;
+                padding: 20px 30px;
+                @include border-radius(0);
+                @include box-shadow(none);
+
+                .panel-heading {
+                    margin: 0;
+                    padding: 0 0 15px;
+                    font-size: 17px;
+                    border-bottom: 2px solid $main-panel-heading-border-color;
+                }
+
+                .panel-body {
+                    padding: 20px 0 0;
+                }
+
+                &.panel-inverted {
+                    background: #2C2E2F;
+
+                    .panel-heading {
+                        color: #FFF;
+                    }
+
+                    .panel-body {
+                        color: #979898;
+                    }
+                }
+            }
+        }
+    }
+}
