@@ -1,5 +1,5 @@
 // 定义表头
-var table_head 		= ['账号', '名称', '操作'];
+var table_head 		= ['id', '姓名', '操作'];
 
 // 表头加载
 var table_head_html = '';
@@ -16,7 +16,7 @@ var table_body_html = '';
 
 $.ajax({
 	type: 'GET',
-	url: 'http://localhost:5000/api/admin',
+	url: 'http://localhost:5000/api/student',
 	dataType: 'json',
 	success: function(data) {
 		data.map(function(item) {
@@ -33,7 +33,7 @@ $.ajax({
 			table_body_html += '<td>';
 			table_body_html += '<button class="btn btn-info btn-sm" type="button" data-toggle="modal" data-target="#resetModal" data-id="';
 			table_body_html += item.id;
-			table_body_html += '">重置</button>';
+			table_body_html += '">更改</button>';
 			table_body_html += '<button class="btn btn-danger btn-sm" type="button" data-toggle="modal" data-target="#delModal" data-id="';
 			table_body_html += item.id;
 			table_body_html += '">删除</button>';
@@ -60,13 +60,13 @@ $('#delModal').find('form').validate({
 	submitHandler: function(form) {
 		$.ajax({
 			type: 'DELETE',
-			url: 'http://localhost:5000/api/admin/' + $(form).find('.data-item').text(),
+			url: 'http://localhost:5000/api/student/' + $(form).find('.data-item').text(),
 			dataType: 'json',
 			success: function(data) {
 				if (data > 0) {
-					toastr.success("删除管理员成功!");
+					toastr.success("删除学生成功!");
 				} else {
-					toastr.success("删除管理员失败!");
+					toastr.success("删除学生失败!");
 				}
 
 				$('#delModal').modal('hide');
@@ -79,7 +79,7 @@ $('#resetModal').find('form').validate({
 	submitHandler: function(form) {
 		$.ajax({
 			type: 'GET',
-			url: 'http://localhost:5000/api/admin/' + $(form).find('.data-item').text(),
+			url: 'http://localhost:5000/api/student/' + $(form).find('.data-item').text(),
 			dataType: 'json',
 			success: function(data) {
 				var newItem = data;
@@ -89,7 +89,7 @@ $('#resetModal').find('form').validate({
 				if (data != undefined) {
 					$.ajax({
 						type: 'PUT',
-						url: 'http://localhost:5000/api/admin/' + $(form).find('.data-item').text(),
+						url: 'http://localhost:5000/api/student/' + $(form).find('.data-item').text(),
 						headers: {
 							'Content-Type': 'application/json'
 						},
@@ -97,13 +97,13 @@ $('#resetModal').find('form').validate({
 						dataType: 'json',
 						success: function(item) {
 							if (item > 0) {
-								toastr.success('更新管理员成功!');
+								toastr.success('更新学生成功!');
 								$('#resetModal').modal('hide');
 							}
 						}
 					});
 				} else {
-					toastr.success("更新管理员失败!");
+					toastr.success("更新学生失败!");
 				}
 
 				$('#resetModal').modal('hide');
@@ -113,42 +113,10 @@ $('#resetModal').find('form').validate({
 });
 
 $('#addModal').find('form').validate({
-    rules: {
-        userId: {
-            required: true
-        },
-        userPwd: {
-            required: true,
-            minlength: 2
-        },
-        userName: {
-            required: true
-        },
-        reUserPwd: {
-            required: true,
-            minlength: 2
-        }
-    },
-    messages: {
-        userId: {
-            required: 'Please input your userId'
-        },
-        userPwd: {
-            required: 'Please input your password',
-            minlength: 'Password required at least 2 words'
-        },
-        userName: {
-            required: 'Please input your username'
-        },
-        reUserPwd: {
-            required: 'Please input your password again',
-            minlength: 'Password required at least 2 words'
-        }
-    },
 	submitHandler: function(form) {
 		$.ajax({
 			type: 'POST',
-			url: 'http://localhost:5000/api/admin',
+			url: 'http://localhost:5000/api/student',
 			headers: {
 				'Content-Type': 'application/json'
 			},
@@ -156,14 +124,18 @@ $('#addModal').find('form').validate({
 				id: $(form).find('input[name=userId]').val(),
 				name: $(form).find('input[name=userName]').val(),
 				password: $(form).find('input[name=userPwd]').val(),
-				right: 1
+				sex: $(form).find('input[name=userSex]').val(),
+				address: $(form).find('input[name=userAddress]').val(),
+				age: $(form).find('input[name=userAge]').val(),
+				phoneNumber: $(form).find('input[name=userNum]').val(),
+				photoUrl: $(form).find('input[name=uploadFile]').val(),	
 			}),
 			dataType: 'json',
 			success: function(data) {
 				if (data > 0) {
-					toastr.success("添加管理员成功!");
+					toastr.success("添加学生成功!");
 				} else {
-					toastr.success("添加管理员失败!");
+					toastr.success("添加学生失败!");
 				}
 
 				$('#addModal').modal('hide');

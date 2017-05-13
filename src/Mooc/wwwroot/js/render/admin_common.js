@@ -47,3 +47,53 @@ nav.map(function(item) {
 
 $('#consoleApp nav').find('ul').html(navHtml);
 jQuery('#container').perfectScrollbar();
+jQuery('#container').find('> header > ul:last-child > li').click(function() {
+    jQuery(this).toggleClass('open');
+});
+
+// Check if login valid.
+$.ajax({
+	type: 'GET',
+	url: 'http://localhost:5000/api/session',
+	dataType: 'json',
+	success: function(data) {
+		if (data == undefined || data.length == 0) {
+			toastr.error('非法登录！');
+
+			window.location.href = 'admin_login.html';
+		}
+	}
+});
+
+// Logout
+$('.dropdown-menu').find('li:last-of-type a').click(function() {
+	$.ajax({
+		type: 'GET',
+		url: 'http://localhost:5000/api/session',
+		dataType: 'json',
+		success: function(data) {
+			if (data != undefined) {
+				const id = data[0].id;
+
+				$.ajax({
+					type: 'DELETE',
+					url: 'http://localhost:5000/api/session/' + id,
+					dataType: 'json',
+					success: function(item) {
+						if (item > 0) {
+							toastr.success('登出成功!');
+
+							window.location.href = 'admin_login.html';
+						} else {
+							toastr.error('登出失败!');
+						}
+					}
+				});
+			} else {
+				toastr.error('登录已过期！');
+
+				window.location.href = 'admin_login.html';
+			}
+		}
+	})
+});

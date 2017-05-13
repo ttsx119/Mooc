@@ -2,6 +2,7 @@
 using Mooc.Models;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -46,7 +47,6 @@ namespace Mooc.Services
 
             if (_teacher != null)
             {
-
                 _teacher.Name = teacher.Name;
                 _teacher.Password = teacher.Password;
                 _teacher.Sex = teacher.Sex;
@@ -54,6 +54,15 @@ namespace Mooc.Services
                 _teacher.Age = teacher.Age;
                 _teacher.PhoneNumber = teacher.PhoneNumber;
                 _teacher.PhotoUrl = teacher.PhotoUrl;
+
+                if (teacher.PhotoUrl.Length != 0)
+                {
+                    var info = new FileInfo(teacher.PhotoUrl);
+
+                    info.CopyTo(@"F:\\Station\\Mooc\\src\\Mooc\\wwwroot\\res\\img\\" + info.Name);
+                    
+                    _teacher.PhotoUrl = info.Name;
+                }
 
                 this.db.Update(_teacher);
 

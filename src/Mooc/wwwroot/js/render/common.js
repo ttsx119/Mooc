@@ -44,7 +44,7 @@ function renderFooter() {
 	footerHTML += '<a href="#" target="_parent">关于我们</a>';
 	footerHTML += '<a href="#" target="_parent">提供意见</a>';
 	footerHTML += '<div class="copyright">';
-	footerHTML += '&copyright;2016-2017 麦壳 京ICP备00000001号-1';
+	footerHTML += '&copy;2016-2017 麦壳 京ICP备00000001号-1';
 	footerHTML += '</div>';
 	footerHTML += '</div>';
 
