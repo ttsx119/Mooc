@@ -58,3 +58,17 @@ renderFooter();
 $('nav').find('li').click(function() {
 	$(this).addClass('current').siblings().removeClass('current');
 });
+
+// 前台整合
+$.ajax({
+	type: 'GET',
+	url: 'http://localhost:5000/api/session',
+	dataType: 'json',
+	success: function(data) {
+		if (data == undefined || data.length == 0) {
+			toastr.error('非法登录！');
+
+			window.location.href = 'login.html';
+		}
+	}
+});

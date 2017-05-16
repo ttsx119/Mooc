@@ -61,9 +61,9 @@ $('#delModal').find('form').validate({
 			dataType: 'json',
 			success: function(data) {
 				if (data > 0) {
-					toastr.success("删除学生成功!");
+					toastr.success("删除留言成功!");
 				} else {
-					toastr.success("删除学生失败!");
+					toastr.success("删除留言失败!");
 				}
 
 				$('#delModal').modal('hide');
@@ -71,8 +71,6 @@ $('#delModal').find('form').validate({
 		});
 	}
 });
-
-
 
 $('#addModal').find('form').validate({
 	submitHandler: function(form) {

@@ -59,7 +59,10 @@ namespace Mooc.Services
                 {
                     var info = new FileInfo(teacher.PhotoUrl);
 
-                    info.CopyTo(@"F:\\Station\\Mooc\\src\\Mooc\\wwwroot\\res\\img\\" + info.Name);
+                    if (!File.Exists(@"F:\\Station\\Mooc\\src\\Mooc\\wwwroot\\res\\img\\" + info.Name))
+                    {
+                        info.CopyTo(@"F:\\Station\\Mooc\\src\\Mooc\\wwwroot\\res\\img\\" + info.Name);
+                    }
                     
                     _teacher.PhotoUrl = info.Name;
                 }

@@ -1,5 +1,10 @@
-CKEDITOR.replace('editor');
 var noteSize = 0;
+var session = {
+	id: '130708119',
+	name: 'Demo',
+	type: 0
+};
+
 
 $.ajax({
 	type: 'GET',
@@ -49,20 +54,10 @@ $.ajax({
 	}
 });
 
-/*
+
 $('form').validate({
 	submitHandler: function(form) {
-		var id = '';
-
-		$.ajax({
-			type: 'GET',
-			url: 'http://localhost:5000/api/session',
-			dataType: 'json',
-			success: function(sessionItem) {
-				id = sessionItem[0].id;
-			}
-		});
-
+	
 		$.ajax({
 			type: 'POST',
 			url: 'http://localhost:5000/api/note',
@@ -71,9 +66,9 @@ $('form').validate({
 			},
 			data: JSON.stringify({
 				id: noteSize + 1,
-				noterID: id,
+				noterID: session.id,
 				content: $('textarea').val(),
-				noteTime: Date.now()
+				noteTime: getTime(new Date())
 			}),
 			dataType: 'json',
 			success: function(data) {
@@ -85,4 +80,45 @@ $('form').validate({
 			}
 		});
 	}
-});*/
+});
+function getTime(date)
+{
+    if(date == null)
+    {
+        date = new Date();
+    }
+    var y = date.getFullYear();
+    var M = date.getMonth() + 1;
+    var d = date.getDate();
+    var h = date.getHours();
+    var m = date.getMinutes();
+    var s = date.getSeconds();
+    var html = y + "-";
+    if(M < 10)
+    {
+        html += "0";
+    }
+    html += M + "-";
+ 
+    if(d < 10)
+    {
+        html += "0";
+    }
+    html += d + " ";
+    if(h < 10)
+    {
+        html += "0";
+    }
+    html += h + ":";
+    if(m < 10)
+    {
+        html += "0";
+    }
+    html += m + ":";
+    if(s < 10)
+    {
+        html += "0";
+    }
+    html += s;
+    return html;
+}

@@ -2,6 +2,7 @@
 using Mooc.Models;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -34,6 +35,18 @@ namespace Mooc.Services
         // POST api/course
         public int Post(Course course)
         {
+            if (course.CourseUrl.Length != 0)
+            {
+                var info = new FileInfo(course.CourseUrl);
+
+                if (!File.Exists(@"F:\\Station\\Mooc\\src\\Mooc\\wwwroot\\res\\video\\" + info.Name))
+                {
+                    info.CopyTo(@"F:\\Station\\Mooc\\src\\Mooc\\wwwroot\\res\\video\\" + info.Name);
+                }
+
+                course.CourseUrl = info.Name;
+            }
+
             this.db.Add(course);
 
             return this.db.SaveChanges();
@@ -56,6 +69,17 @@ namespace Mooc.Services
                 _course.TypeID = course.TypeID;
                 _course.CourseUrl = course.CourseUrl;
                 _course.CourseImgUrl = course.CourseImgUrl;
+
+                if (course.CourseUrl.Length != 0)
+                {
+                    var info = new FileInfo(course.CourseUrl);
+
+                   if (!File.Exists(@"F:\\Station\\Mooc\\src\\Mooc\\wwwroot\\res\\video\\" + info.Name))
+                    {
+                        info.CopyTo(@"F:\\Station\\Mooc\\src\\Mooc\\wwwroot\\res\\video\\" + info.Name);
+                    }
+                    _course.CourseUrl = info.Name;
+                }
 
                 this.db.Update(_course);
 

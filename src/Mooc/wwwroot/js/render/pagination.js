@@ -99,10 +99,6 @@ function visitNext(_li, _next, _previous) {
 
 function dataDisplay(index) {
     jQuery('.course_list').find('li').each(function() {
-        jQuery(this).hide();
-    });
-
-    jQuery('.course_list').find('li.show').each(function() {
         const currentIndex = jQuery(this).index() + 1;
 
         if ((index - 9) <= currentIndex && currentIndex <= index) {
