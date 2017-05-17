@@ -9,7 +9,7 @@ namespace Mooc.Models
     {
         public string ID { get; set; }  //ID
         public string Name { get; set; }   //名称
-        public int Password { get; set; }     //密码
+        public string Password { get; set; }     //密码
         public int Right { get; set; }      //权限
         
     }

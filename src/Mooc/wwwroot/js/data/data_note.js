@@ -1,4 +1,19 @@
-CKEDITOR.replace('editor');
+// 登录校验
+$.ajax({
+	type: 'GET',
+	url: 'http://localhost:5000/api/session',
+	dataType: 'json',
+	success: function(data) {
+		if (data == undefined || data.length == 0) {
+			toastr.error('非法登录！');
+
+			window.location.href = 'login.html';
+		} else {
+			add_note(data[0]);
+		}
+	}
+});
+
 var noteSize = 0;
 
 $.ajax({
@@ -49,40 +64,72 @@ $.ajax({
 	}
 });
 
-/*
-$('form').validate({
-	submitHandler: function(form) {
-		var id = '';
-
-		$.ajax({
-			type: 'GET',
-			url: 'http://localhost:5000/api/session',
-			dataType: 'json',
-			success: function(sessionItem) {
-				id = sessionItem[0].id;
-			}
-		});
-
-		$.ajax({
-			type: 'POST',
-			url: 'http://localhost:5000/api/note',
-			headers: {
-				'Content-Type': 'application/json'
-			},
-			data: JSON.stringify({
-				id: noteSize + 1,
-				noterID: id,
-				content: $('textarea').val(),
-				noteTime: Date.now()
-			}),
-			dataType: 'json',
-			success: function(data) {
-				if (data > 0) {
-					toastr.success('添加成功!');
-				} else {
-					toastr.error('会话异常终止！');
+function add_note(session) {
+	$('form').validate({
+		submitHandler: function(form) {
+			$.ajax({
+				type: 'POST',
+				url: 'http://localhost:5000/api/note',
+				headers: {
+					'Content-Type': 'application/json'
+				},
+				data: JSON.stringify({
+					id: noteSize + 1,
+					noterID: session.id,
+					content: $('textarea').val(),
+					noteTime: getTime(new Date())
+				}),
+				dataType: 'json',
+				success: function(data) {
+					if (data > 0) {
+						toastr.success('添加成功!');
+					} else {
+						toastr.error('会话异常终止！');
+					}
 				}
-			}
-		});
-	}
-});*/
+			});
+		}
+	});
+}
+
+function getTime(date)
+{
+    if(date == null)
+    {
+        date = new Date();
+    }
+    var y = date.getFullYear();
+    var M = date.getMonth() + 1;
+    var d = date.getDate();
+    var h = date.getHours();
+    var m = date.getMinutes();
+    var s = date.getSeconds();
+    var html = y + "-";
+    if(M < 10)
+    {
+        html += "0";
+    }
+    html += M + "-";
+ 
+    if(d < 10)
+    {
+        html += "0";
+    }
+    html += d + " ";
+    if(h < 10)
+    {
+        html += "0";
+    }
+    html += h + ":";
+    if(m < 10)
+    {
+        html += "0";
+    }
+    html += m + ":";
+    if(s < 10)
+    {
+        html += "0";
+    }
+    html += s;
+    return html;
+}

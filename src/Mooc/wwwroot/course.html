@@ -9,6 +9,7 @@
 
 		<title>麦壳</title>
 
+		<link rel="stylesheet" href="./node_modules/toastr/build/toastr.min.css">
 		<link rel="stylesheet" href="./dist/css/course.css">
 	</head>
 	<body>
@@ -25,7 +26,7 @@
 					<dl>
 						<dt>课程时长：</dt>
 						<dd>
-							<a href="javascript:void(0);" target="_parent">30</a>
+							<a class="current" href="javascript:void(0);" target="_parent">30</a>
 							<a href="javascript:void(0);" target="_parent">60</a>
 							<a href="javascript:void(0);" target="_parent">90</a>
 							<a href="javascript:void(0);" target="_parent">120</a>
@@ -35,7 +36,7 @@
 					<dl>
 						<dt>上课方式：</dt>
 						<dd>
-							<a href="javascript:void(0);" target="_parent">线上</a>
+							<a class="current" href="javascript:void(0);" target="_parent">线上</a>
 							<a href="javascript:void(0);" target="_parent">线下</a>
 						</dd>
 					</dl>
@@ -51,24 +52,16 @@
 
 			<ul class="course_list"></ul>
 
-			<div class="pagination">
-				<a href="javascript:void(0);" target="_parent">首页</a>
-				<a href="javascript:void(0);" target="_parent">上一页</a>
-				<a href="javascript:void(0);" target="_parent">1</a>
-				<a href="javascript:void(0);" target="_parent">2</a>
-				<a href="javascript:void(0);" target="_parent">3</a>
-				<a href="javascript:void(0);" target="_parent">4</a>
-				<a href="javascript:void(0);" target="_parent">5</a>
-				<a href="javascript:void(0);" target="_parent">下一页</a>
-				<a href="javascript:void(0);" target="_parent">尾页</a>
-			</div>
+			<div class="pagination"></div>
 		</div>
 
 		<footer></footer>
 
 		<script src="./node_modules/jquery/dist/jquery.min.js"></script>
+		<script src="./node_modules/toastr/build/toastr.min.js"></script>
 		<script src="./dist/js/common.js"></script>
 		<script src="./dist/js/animate_course.js"></script>
+		<script src="./dist/js/pagination.js"></script>
 		<script src="./dist/js/data_course.js"></script>
 	</body>
 </html>

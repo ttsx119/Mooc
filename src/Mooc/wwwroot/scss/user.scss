@@ -1,0 +1,250 @@
+@import "./common/common.scss";
+
+#container {
+	margin: 35px auto 0;
+	padding-bottom: 100px;
+	width: 1024px;
+	overflow: hidden;
+
+	.sidebar {
+		float: left;
+		width: 230px;
+
+		& > a {
+			display: block;
+			margin-bottom: 15px;
+			padding-left: 70px;
+			height: 45px;
+			line-height: 45px;
+			color: #FFF;
+			font-size: 18px;
+			background: #91CEBE url("../img/icon_add.png") 45px center no-repeat;
+			border-radius: 5px;
+			transition: 0.2s;
+
+			&:hover {
+				background-color: #019875;
+			}
+		}
+
+		& > dl {
+			margin: 12px 0 0;
+			background: #FAFAFA;
+
+			dt {
+				padding: 10px 10px 10px 20px;
+				max-height: 50px;
+				color: #777;
+				font-size: 18px;
+				line-height: 28px;
+				background: url("../img/resume_dashed.png") left bottom no-repeat;
+				overflow: hidden;
+			}
+
+			dd {
+				margin: 0;
+				height: 40px;
+				color: #333;
+				font-size: 14px;
+				line-height: 40px;
+				background: url("../img/resume_dashed.png") left bottom no-repeat;
+
+				a {
+					display: block;
+					padding-left: 46px;
+					width: 190px;
+					color: #555;
+					transition: 0.2s;
+				}
+			}
+		}
+	}
+
+	.content {
+		float: right;
+		width: 744px;
+
+		& > dl {
+			position: relative;
+			margin-top: 5px;
+			background: #FAFAFA;
+
+			dt {
+				position: absolute;
+				top: -5px;
+				left: 40px;
+				z-index: 1;
+				height: 47px;
+				background: #91CEBE;
+
+				h1 {
+					margin: 0;
+					padding: 0 20px;
+					color: #FFF;
+					font-size: 24px;
+					font-weight: 400;
+					line-height: 47px;
+
+					em {
+						position: absolute;
+						top: 0;
+						left: -4px;
+						width: 4px;
+						height: 5px;
+						background: url("../img/title_arrow_new.png") no-repeat;
+					}
+				}
+			}
+
+			dd {
+				padding: 70px 0;
+				min-height: 337px;
+
+				form {
+					margin: 0 40px;
+					font-size: 18px;
+
+					section {
+						padding-bottom: 10px;
+						min-height: 40px;
+						line-height: 50px;
+						border-bottom: 1px dashed #E0E0E0;
+						overflow: hidden;
+
+						span {
+							float: left;
+							display: inline-block;
+							width: 50px;
+							color: #FE6161;
+						}
+
+						label {
+							float: left;
+							display: inline-block;
+							margin-right: 40px;
+							width: 100px;
+						}
+
+						input[type=text] {
+							width: 350px;
+							height: 30px;
+							color: #333;
+							text-indent: 20px;
+						}
+
+						textarea {
+							float: left;
+							margin-top: 20px;
+						}
+					}
+
+					input[type=submit] {
+						margin-top: 20px;
+						padding: 0 55px;
+						height: 32px;
+						line-height: 32px;
+						color: #FFF;
+						font-size: 18px;
+						background: #019875;
+						border: none;
+					}
+				}
+			}
+
+			&.table_list {
+				dd {
+					margin: 0;
+					padding: 70px 0 0;
+
+					form {
+						margin: 0;
+
+						.filter_actions {
+							position: relative;
+							padding: 15px 20px;
+							font: 14px/22px "Microsoft YaHei","宋体", Arial;
+							background: #F2F2F2;
+
+							input {
+								float: left;
+								margin-top: 3px;
+								width: 13px;
+								height: 13px;
+								background: #FFF;
+								border: 2px solid #E0E0E0;
+							}
+
+							span {
+								float: left;
+								margin: 0 0 0 12px;
+								color: #555;
+								font-weight: 600;
+							}
+
+							a {
+								display: inline-block;
+								margin-left: 20px;
+								padding: 1px 10px;
+								color: #FFF;
+								background: #91CEBE;
+								transition: 0.2s;
+
+								&:hover {
+									background: #019875;
+								}
+							}
+						}
+
+						ul {
+							margin: 25px 0;
+
+							li {
+								margin-bottom: 25px;
+								padding: 0 40px 0 20px;
+								overflow: hidden;
+
+								& > input {
+									float: left;
+								}
+
+								& > div {
+									margin-left: 30px;
+									padding: 10px;
+									background: #FFF;
+
+									& > div {
+										&:first-of-type {
+											overflow: hidden;
+
+											h3 {
+												float: left;
+												display: inline-block;
+												margin: 0;
+												font-weight: 600;
+
+												a {
+													margin-right: 10px;
+													color: #019875;
+													font-size: 18px;
+												}
+											}
+
+											span {
+												float: right;
+												font-size: 12px;
+											}
+										}
+
+										&:last-of-type {
+											font-size: 12px;
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}

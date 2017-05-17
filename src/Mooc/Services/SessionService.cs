@@ -60,7 +60,7 @@ namespace Mooc.Services
         // DELETE api/session/{id}
         public int Delete(string id)
         {
-            var _session = this.db.Student.FirstOrDefault(item => item.ID == id);
+            var _session = this.db.Session.FirstOrDefault(item => item.ID == id);
 
             if (_session != null)
             {

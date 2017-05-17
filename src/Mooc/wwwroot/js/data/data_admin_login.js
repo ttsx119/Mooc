@@ -4,8 +4,7 @@ $('#loginApp').find('form').validate({
             required: true
         },
         password: {
-            required: true,
-            minlength: 2
+            required: true
         }
     },
     messages: {
@@ -13,8 +12,7 @@ $('#loginApp').find('form').validate({
             required: 'Please input your username'
         },
         password: {
-            required: 'Please input your password',
-            minlength: 'Password required at least 2 words'
+            required: 'Please input your password'
         }
     },
     submitHandler: function(form) {
@@ -45,7 +43,8 @@ function store(m_id, m_name) {
         },
         data: JSON.stringify({
             id: m_id,
-            name: m_name
+            name: m_name,
+            type: 3
         }),
         dataType: 'json',
         success: function(data) {
