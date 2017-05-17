@@ -25,7 +25,7 @@ $('form').validate({
 			dataType: 'json',
 			success: function(data) {
 				if (data != undefined && data.password === pwd) {
-					store(id, data.name);
+					store(id, data.name, 0);
 				} else {
 					$.ajax({
 						type: 'GET',
@@ -33,7 +33,7 @@ $('form').validate({
 						dataType: 'json',
 						success: function(response) {
 							if (response != undefined && response.password === pwd) {
-								store(id, response.name);
+								store(id, response.name, 1);
 							} else {
 								toastr.error('登录失败!');
 							}
@@ -45,7 +45,7 @@ $('form').validate({
 	}
 });
 
-function store(m_id, m_name) {
+function store(m_id, m_name, m_type) {
 	$.ajax({
 		type: 'POST',
 		url: 'http://localhost:5000/api/session',
@@ -54,7 +54,8 @@ function store(m_id, m_name) {
 		},
 		data: JSON.stringify({
 			id: m_id,
-			name: m_name
+			name: m_name,
+			type: m_type
 		}),
 		dataType: 'json',
 		success: function(data) {

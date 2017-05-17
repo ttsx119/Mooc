@@ -1,8 +1,20 @@
-var session = {
-	id: '130708119',
-	name: 'Demo',
-	type: 0
-};
+// 登录校验
+$.ajax({
+	type: 'GET',
+	url: 'http://localhost:5000/api/session',
+	dataType: 'json',
+	success: function(data) {
+		if (data == undefined || data.length == 0) {
+			toastr.error('非法登录！');
+
+			window.location.href = 'login.html';
+		} else {
+			$('input').click(function() {
+				add_lesson(data[0]);
+			});
+		}
+	}
+});
 
 function getId() {
 	var url = window.location.href;
@@ -35,7 +47,7 @@ $.ajax({
 	}
 });
 
-$('input').click(function() {
+function add_lesson(session) {
 	if(session.type == 0){
 		$.ajax({
 			type: 'GET',
@@ -109,4 +121,4 @@ $('input').click(function() {
 	} else {
 		toastr.success("教师无法选课!");
 	}
-});
+}

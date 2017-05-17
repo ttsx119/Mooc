@@ -1,10 +1,20 @@
-var noteSize = 0;
-var session = {
-	id: '130708119',
-	name: 'Demo',
-	type: 0
-};
+// 登录校验
+$.ajax({
+	type: 'GET',
+	url: 'http://localhost:5000/api/session',
+	dataType: 'json',
+	success: function(data) {
+		if (data == undefined || data.length == 0) {
+			toastr.error('非法登录！');
 
+			window.location.href = 'login.html';
+		} else {
+			add_note(data[0]);
+		}
+	}
+});
+
+var noteSize = 0;
 
 $.ajax({
 	type: 'GET',
@@ -54,33 +64,34 @@ $.ajax({
 	}
 });
 
-
-$('form').validate({
-	submitHandler: function(form) {
-	
-		$.ajax({
-			type: 'POST',
-			url: 'http://localhost:5000/api/note',
-			headers: {
-				'Content-Type': 'application/json'
-			},
-			data: JSON.stringify({
-				id: noteSize + 1,
-				noterID: session.id,
-				content: $('textarea').val(),
-				noteTime: getTime(new Date())
-			}),
-			dataType: 'json',
-			success: function(data) {
-				if (data > 0) {
-					toastr.success('添加成功!');
-				} else {
-					toastr.error('会话异常终止！');
+function add_note(session) {
+	$('form').validate({
+		submitHandler: function(form) {
+			$.ajax({
+				type: 'POST',
+				url: 'http://localhost:5000/api/note',
+				headers: {
+					'Content-Type': 'application/json'
+				},
+				data: JSON.stringify({
+					id: noteSize + 1,
+					noterID: session.id,
+					content: $('textarea').val(),
+					noteTime: getTime(new Date())
+				}),
+				dataType: 'json',
+				success: function(data) {
+					if (data > 0) {
+						toastr.success('添加成功!');
+					} else {
+						toastr.error('会话异常终止！');
+					}
 				}
-			}
-		});
-	}
-});
+			});
+		}
+	});
+}
+
 function getTime(date)
 {
     if(date == null)
