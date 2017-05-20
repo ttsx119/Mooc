@@ -153,7 +153,7 @@ $.ajax({
 					}
 				});
 
-				hotHTML += '<a href="javascript:void(0);" target="_parent">查看更多</a>';
+				hotHTML += '<a href="course.html" target="_parent">查看更多</a>';
 				hotIndex = 0;
 
 				$('.tab_body').find('.hot_body').html(hotHTML);
@@ -214,7 +214,7 @@ $.ajax({
 					}
 				});
 
-				newHTML += '<a href="javascript:void(0);" target="_parent">查看更多</a>';
+				newHTML += '<a href="course.html" target="_parent">查看更多</a>';
 				hotIndex = 0;
 
 				$('.tab_body').find('.new_body').html(newHTML);
